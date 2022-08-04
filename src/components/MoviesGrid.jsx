@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { MovieCard } from "./MovieCard";
@@ -5,7 +6,9 @@ import { MovieCard } from "./MovieCard";
 import styles from "./MoviesGrid.module.css";
 
 export function MoviesGrid() {
+  const { movieId } = useParams();
   const [movies, setMovies] = useState([]);
+
 
   useEffect(() =>{
     fetch("https://api.themoviedb.org/4/discover/movie",{
