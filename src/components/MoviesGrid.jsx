@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { useEffect } from "react";
 import { MovieCard } from "./MovieCard";
 // import movies from "./movies.json";
 import styles from "./MoviesGrid.module.css";
 
 export function MoviesGrid() {
-  let movies = [];
+  const [movies, setMovies] = useState([]);
+
   useEffect(() =>{
     fetch("https://api.themoviedb.org/4/discover/movie",{
       headers:{
@@ -15,10 +17,10 @@ export function MoviesGrid() {
       },
     }).then(result => result.json())
     .then((data) => {
-      movies = data.results;
-      console.log(movies);
-    })
-});
+      setMovies ( data.results);
+      
+    });
+},[]);
 
   return (
     <ul className={styles.moviesGrid}>
