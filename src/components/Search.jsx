@@ -1,10 +1,13 @@
+import styles from "./Search.module.css";
+import { FaSearch } from "react-icons/fa";
+
 export function Search(){
     return(
-        <div>
-            <form>
-                <input type="text"/>
-                <button type="submit">Buscar</button>
-            </form>
-        </div>
+        <form className={styles.searchContainer}>
+            <div className="styles.searchBox">
+                <input className="styles.searchInput" type="text"/>
+                <button className="styles.searchButton"type="submit"><FaSearch/></button>
+            </div>
+        </form>
     )
 }
